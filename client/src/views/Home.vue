@@ -1,15 +1,32 @@
 <template>
-  <div class="home">
+  <div>
+
+    <div id='header'>
+      <Title/>
+      <HeaderArea/>
+    </div>
+
   </div>
 </template>
 
 <script>
-// @ is an alias to /src
-// import HelloWorld from '@/components/HelloWorld.vue'
+import Title from '@/components/home/Title.vue';
+import HeaderArea from '@/components/home/HeaderArea.vue';
 
 export default {
   name: 'Home',
   components: {
+    Title,
+    HeaderArea,
   }
 }
+
 </script>
+
+<style scoped>
+#header {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 2em;
+}
+</style>
