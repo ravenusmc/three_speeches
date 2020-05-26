@@ -13,4 +13,14 @@
   text-align: center;
 }
 
+.linkFix {
+  text-decoration: none;
+  color: #BF0D3E;
+  margin-right: 15px;
+}
+
+.linkFix:hover {
+  color: #041E42;
+}
+
 </style>
