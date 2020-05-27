@@ -2,9 +2,9 @@
   <div>
 
     <div class='titleArea'>
-      <h1 class='center numberArea'>3</h1>
-      <h1 class='center textAreaOne'>American</h1>
-      <h1 class='center textAreaTwo'>Speeches</h1>
+      <h1 class='center numberArea blueColor'>3</h1>
+      <h1 class='center textAreaOne redColor'>American</h1>
+      <h1 class='center textAreaTwo redColor'>Speeches</h1>
     </div>
 
   </div>

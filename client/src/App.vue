@@ -23,4 +23,12 @@
   color: #041E42;
 }
 
+.blueColor {
+  color: #041E42;
+}
+
+.redColor {
+  color: #BF0D3E;
+}
+
 </style>

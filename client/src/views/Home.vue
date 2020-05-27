@@ -6,18 +6,22 @@
       <HeaderArea/>
     </div>
 
+    <Purpose/>
+
   </div>
 </template>
 
 <script>
 import Title from '@/components/home/Title.vue';
 import HeaderArea from '@/components/home/HeaderArea.vue';
+import Purpose from '@/components/home/Purpose.vue';
 
 export default {
   name: 'Home',
   components: {
     Title,
     HeaderArea,
+    Purpose,
   }
 }
 
