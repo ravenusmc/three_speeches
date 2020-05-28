@@ -13,6 +13,10 @@
   text-align: center;
 }
 
+.fontSizeHeadings {
+  font-size: 55px;
+}
+
 .linkFix {
   text-decoration: none;
   color: #BF0D3E;
