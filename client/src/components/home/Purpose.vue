@@ -4,7 +4,7 @@
     <section class='purposeSection'>
 
       <div>
-        <h1 class='center fontSizeHeadings'>Purpose</h1>
+        <h1 class='center blueColor fontSizeHeadings'>Purpose</h1>
       </div>
 
       <div class='paragraphDiv'>
@@ -15,7 +15,9 @@
           sentiment analysis to see if that can tell us more about each of the
           speeches that will be investigated in this project. Also, unlike my
           previous projects, I will not be including the actual speeches in this
-          project. Instead, I'll have links to the speech.
+          project. Instead, I'll have links to the speech. Other than that I'll
+          also work to improve some of my basic HTML/CSS skills to try and make
+          the website look nice.
         </p>
       </div>
 
@@ -37,7 +39,24 @@
 
 .paragraphDiv p {
   font-size: 20px;
-  margin-right: 10%;
+  margin-left: 5%;
+  margin-right: 5%;
+}
+
+@media only all and (max-width: 900px){
+
+  .purposeSection {
+    grid-template-columns: 1fr;
+  }
+
+  .paragraphDiv  {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+  }
+
+
 }
 
 </style>
