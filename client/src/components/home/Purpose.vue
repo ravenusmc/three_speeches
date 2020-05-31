@@ -56,7 +56,6 @@
     align-items: center;
   }
 
-
 }
 
 </style>
