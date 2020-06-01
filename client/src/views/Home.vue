@@ -8,6 +8,12 @@
 
     <Purpose/>
 
+    <section>
+      <Speech></Speech>
+    </section>
+
+    <Footer/>
+
   </div>
 </template>
 
@@ -15,6 +21,8 @@
 import Title from '@/components/home/Title.vue';
 import HeaderArea from '@/components/home/HeaderArea.vue';
 import Purpose from '@/components/home/Purpose.vue';
+import Speech from '@/components/home/Speech.vue';
+import Footer from '@/components/generic/Footer.vue';
 
 export default {
   name: 'Home',
@@ -22,6 +30,8 @@ export default {
     Title,
     HeaderArea,
     Purpose,
+    Speech,
+    Footer,
   }
 }
 
