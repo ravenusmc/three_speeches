@@ -8,8 +8,26 @@
 
     <Purpose/>
 
-    <section>
-      <Speech></Speech>
+    <section id='speechArea'>
+
+      <div>
+        <Speech :title=speechOne></Speech>
+        <div>
+        </div>
+      </div>
+
+      <div>
+        <Speech :title=speechTwo></Speech>
+        <div>
+        </div>
+      </div>
+
+      <div>
+        <Speech :title=speechThree></Speech>
+        <div>
+        </div>
+      </div>
+
     </section>
 
     <Footer/>
@@ -26,6 +44,13 @@ import Footer from '@/components/generic/Footer.vue';
 
 export default {
   name: 'Home',
+  data() {
+    return {
+      speechOne: 'Gettysburg Address',
+      speechTwo: 'I Have a Dream',
+      speechThree: 'Military Industrial Complex Speech'
+    }
+  },
   components: {
     Title,
     HeaderArea,
@@ -42,6 +67,13 @@ export default {
 #header {
   display: grid;
   grid-template-columns: 1fr 1fr;
+}
+
+#speechArea {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr 1fr;
+  grid-gap: 2em;
 }
 
 </style>
