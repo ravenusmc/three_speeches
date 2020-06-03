@@ -11,21 +11,27 @@
     <section id='speechArea'>
 
       <div>
+
         <Speech :title=speechOne></Speech>
         <div>
         </div>
+        
       </div>
 
       <div>
+
         <Speech :title=speechTwo></Speech>
         <div>
         </div>
+
       </div>
 
       <div>
+
         <Speech :title=speechThree></Speech>
         <div>
         </div>
+
       </div>
 
     </section>
