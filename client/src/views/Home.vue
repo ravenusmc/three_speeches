@@ -10,25 +10,33 @@
 
     <section id='speechArea'>
 
-      <div>
+      <div id='speechDiv'>
 
-        <Speech :title=speechOne></Speech>
+        <Speech
+          :title=speechOne>
+        </Speech>
+
         <div>
-        </div>
-        
-      </div>
-
-      <div>
-
-        <Speech :title=speechTwo></Speech>
-        <div>
+          <img class='imageOne' src="../assets/images/wall.jpg" alt="Vietnam Wall">
         </div>
 
       </div>
 
       <div>
 
-        <Speech :title=speechThree></Speech>
+        <Speech
+          :title=speechTwo>
+        </Speech>
+        <div>
+        </div>
+
+      </div>
+
+      <div>
+
+        <Speech
+          :title=speechThree>
+          </Speech>
         <div>
         </div>
 
@@ -77,9 +85,23 @@ export default {
 
 #speechArea {
   display: grid;
-  grid-template-columns: 1fr 1fr;
   grid-template-rows: 1fr 1fr 1fr;
   grid-gap: 2em;
+  margin-top: 50px;
+}
+
+#speechDiv {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  border: 2px solid black;
+  justify-content: center;
+}
+
+.imageOne {
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  height: 300px;
 }
 
 </style>
