@@ -4,6 +4,7 @@
     <hr>
     <div>
       <h1>{{ title }}</h1>
+      <p><a :href=url>See Speech</a></p>
     </div>
 
 
@@ -13,15 +14,15 @@
 <script>
 export default {
   name: "Speech",
-  props: ['title']
+  props: ['title', 'url']
 }
 </script>
 
 <style scoped>
 
 hr {
-  position: absolute;
-  left: 10px;
+  position: relative;
+  left: -45%;
   border-top: 2px solid #041E42;
   width: 10%;
 }

@@ -13,7 +13,8 @@
       <div id='speechDiv'>
 
         <Speech
-          :title=speechOne>
+          :title=speechOne
+          :url=urlGettysburg>
         </Speech>
 
         <div>
@@ -25,7 +26,8 @@
       <div>
 
         <Speech
-          :title=speechTwo>
+          :title=speechTwo
+          :url=urlDream>
         </Speech>
         <div>
         </div>
@@ -62,7 +64,9 @@ export default {
     return {
       speechOne: 'Gettysburg Address',
       speechTwo: 'I Have a Dream',
-      speechThree: 'Military Industrial Complex Speech'
+      speechThree: 'Military Industrial Complex Speech',
+      urlGettysburg: 'https://en.wikipedia.org/wiki/Gettysburg_Address#:~:text=The%20Gettysburg%20Address%20is%20a,armies%20defeated%20those%20of%20the',
+      urlDream: 'https://www.americanrhetoric.com/speeches/mlkihaveadream.htm',
     }
   },
   components: {
@@ -93,7 +97,6 @@ export default {
 #speechDiv {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  border: 2px solid black;
   justify-content: center;
 }
 
