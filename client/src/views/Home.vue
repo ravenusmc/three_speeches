@@ -13,33 +13,41 @@
       <div id='speechDiv'>
 
         <Speech
+          class='speechArea'
           :title=speechOne
           :url=urlGettysburg>
         </Speech>
 
-        <div>
+        <div class='imageDiv'>
           <img class='imageOne' src="../assets/images/wall.jpg" alt="Vietnam Wall">
         </div>
 
       </div>
 
-      <div>
+      <div id='speechDiv'>
 
         <Speech
+          class='speechArea'
           :title=speechTwo
           :url=urlDream>
         </Speech>
-        <div>
+
+        <div class='imageDiv'>
+          <img class='imageOne' src="../assets/images/dream.jpg" alt="I have a dream image">
         </div>
 
       </div>
 
-      <div>
+      <div id='speechDiv'>
 
         <Speech
-          :title=speechThree>
-          </Speech>
-        <div>
+          class='speechArea'
+          :title=speechThree
+          :url=urlMilitary>
+        </Speech>
+
+        <div class='imageDiv'>
+          <img class='imageOne' src="../assets/images/military.jpg" alt="Military image">
         </div>
 
       </div>
@@ -67,6 +75,7 @@ export default {
       speechThree: 'Military Industrial Complex Speech',
       urlGettysburg: 'https://en.wikipedia.org/wiki/Gettysburg_Address#:~:text=The%20Gettysburg%20Address%20is%20a,armies%20defeated%20those%20of%20the',
       urlDream: 'https://www.americanrhetoric.com/speeches/mlkihaveadream.htm',
+      urlMilitary: 'https://avalon.law.yale.edu/20th_century/eisenhower001.asp',
     }
   },
   components: {
@@ -97,7 +106,20 @@ export default {
 #speechDiv {
   display: grid;
   grid-template-columns: 1fr 1fr;
+}
+
+.speechArea {
+  display: flex;
+  flex-direction: column;
   justify-content: center;
+  align-items: center;
+}
+
+.imageDiv {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
 .imageOne {
@@ -105,6 +127,8 @@ export default {
   background-size: cover;
   background-repeat: no-repeat;
   height: 300px;
+  width: 60%;
 }
+
 
 </style>

@@ -1,10 +1,12 @@
 <template>
   <div>
 
-    <hr>
-    <div>
-      <h1>{{ title }}</h1>
-      <p><a :href=url>See Speech</a></p>
+    <div id='speechCard'>
+      <hr>
+      <div>
+        <h1>{{ title }}</h1>
+        <p><a :href=url>See Speech</a></p>
+      </div>
     </div>
 
 
@@ -19,6 +21,10 @@ export default {
 </script>
 
 <style scoped>
+
+#speechCard {
+  border: 2px solid black;
+}
 
 hr {
   position: relative;
