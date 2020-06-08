@@ -34,7 +34,7 @@ footer {
   align-items: center;
   background: #041E42;
   height: 300px;
-  margin-top: 100px;
+  margin-top: 75px;
 }
 
 .footer_fix {
