@@ -6,7 +6,11 @@
       <HeaderArea/>
     </div>
 
+    <hr>
+
     <Purpose/>
+
+    <hr>
 
     <section id='speechArea'>
 

@@ -2,7 +2,7 @@
   <div>
 
     <div id='speechCard'>
-      <hr>
+      <!-- <hr> -->
       <div>
         <h1>{{ title }}</h1>
         <p><a :href=url>See Speech</a></p>
@@ -23,15 +23,18 @@ export default {
 <style scoped>
 
 #speechCard {
-  border: 2px solid black;
+  border-top: 2px solid #BF0D3E;
+  border-left: 2px solid #041E42;
+  width: 50%;
+  padding: 10px;
 }
 
-hr {
+/* hr {
   position: relative;
   left: -45%;
   border-top: 2px solid #041E42;
   width: 10%;
-}
+} */
 
 h1 {
   margin-top: 20px;
