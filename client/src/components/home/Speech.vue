@@ -40,4 +40,14 @@ h1 {
   margin-top: 20px;
 }
 
+@media only all and (max-width: 900px) {
+
+  #speechCard {
+    width: 70%;
+    padding: 10px;
+  }
+
+
+}
+
 </style>

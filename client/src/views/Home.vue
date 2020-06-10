@@ -51,7 +51,7 @@
         </Speech>
 
         <div class='imageDiv'>
-          <img class='imageOne' src="../assets/images/military.jpg" alt="Military image">
+          <img class='imageOne imageThreeFix' src="../assets/images/military.jpg" alt="Military image">
         </div>
 
       </div>
@@ -132,6 +132,24 @@ export default {
   background-repeat: no-repeat;
   height: 300px;
   width: 60%;
+}
+
+@media only all and (max-width: 900px){
+
+  #speechDiv {
+    grid-template-columns: 1fr;
+  }
+
+  .imageOne {
+    height: 300px;
+    width: 80%;
+  }
+
+  .imageThreeFix {
+    margin-top: 10px;
+    width: 80%;
+  }
+
 }
 
 
