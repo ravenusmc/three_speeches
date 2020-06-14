@@ -22,6 +22,7 @@
         </ul>
       </div>
     </nav>
+    <!-- End BootStrap Navbar -->
 
   </div>
 </template>
