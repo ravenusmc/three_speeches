@@ -89,7 +89,7 @@ export default {
     Speech,
     Footer,
   }
-  
+
 }
 
 </script>
@@ -136,6 +136,10 @@ export default {
 }
 
 @media only all and (max-width: 900px){
+
+  #header {
+    grid-template-columns: 1fr;
+  }
 
   #speechDiv {
     grid-template-columns: 1fr;

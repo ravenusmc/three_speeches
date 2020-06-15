@@ -3,7 +3,7 @@
 
     <section class='purposeSection'>
 
-      <div>
+      <div class='titleArea'>
         <h1 class='center blueColor fontSizeHeadings'>Purpose</h1>
       </div>
 
@@ -35,6 +35,12 @@
   display: grid;
   grid-template-columns: 1fr 1fr;
   grid-gap: 2em;
+}
+
+.titleArea {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .paragraphDiv p {

@@ -1,10 +1,23 @@
 <template>
   <div>
-    <h1>Study Page</h1>
+    <Navbar />
+
+    <Footer/>
   </div>
 </template>
 
 <script>
+import Navbar from '@/components/generic/Navbar.vue';
+import Footer from '@/components/generic/Footer.vue';
+
+export default {
+  name: 'About',
+  components: {
+    Navbar,
+    Footer,
+  }
+}
+
 </script>
 
 <style scoped>
