@@ -89,6 +89,7 @@ export default {
     Speech,
     Footer,
   }
+  
 }
 
 </script>

@@ -17,6 +17,10 @@
 
 .titleArea {
   height: 500px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
 .numberArea {
@@ -24,12 +28,10 @@
 }
 
 .textAreaOne {
-  margin-top: -100px;
   font-size: 50px;
 }
 
 .textAreaTwo {
-  margin-top: -40px;
   font-size: 50px;
 }
 

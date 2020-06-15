@@ -5,7 +5,7 @@
       <!-- <hr> -->
       <div>
         <h1>{{ title }}</h1>
-        <p><a :href=url>See Speech</a></p>
+        <p><a class='speechLink' :href=url>See Speech</a></p>
       </div>
     </div>
 
@@ -27,6 +27,15 @@ export default {
   border-left: 2px solid #041E42;
   width: 50%;
   padding: 10px;
+}
+
+.speechLink {
+  color: #BF0D3E;
+}
+
+.speechLink:hover {
+  color: #041E42;
+  text-decoration: none;
 }
 
 /* hr {
