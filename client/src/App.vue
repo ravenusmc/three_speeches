@@ -35,4 +35,18 @@
   color: #BF0D3E;
 }
 
+button {
+  margin-top: 30px;
+  width: 10%;
+  background-color: #BF0D3E;
+  border-color: #BF0D3E;
+  color: white;
+  border-radius: 5px;
+}
+
+button:hover {
+  background-color: #041E42;
+  border-color: #041E42;
+}
+
 </style>
