@@ -5,10 +5,12 @@ class Words():
 
     def __init__(self):
         self.GettysburgAddress = 'gettysburg.txt'
+        self.dreamSpeech = 'dream.txt'
+        self.military = 'military.txt'
 
     def build_word_list(self):
       words = []
-      with open(self.GettysburgAddress ,'r') as text:
+      with open(self.military ,'r') as text:
           for line in text:
               for word in line.split():
                   words.append(word)
@@ -38,9 +40,13 @@ class Words():
                 and current_word != 'what' and current_word != 'those' and current_word != 'always' and current_word != 'So'
                 and current_word != 'Again' and current_word != 'And' and current_word != 'As' and current_word != 'Go'
                 and current_word != 'well' and current_word != 'have' and current_word != 'has' and current_word != 'all'
-                and current_word != 'must'):
+                and current_word != 'must' and current_word != 'i' and current_word != 'my' and current_word != 'like'
+                and current_word != 'me' and current_word != 'now' and current_word != 'shall' and current_word != 'with'
+                and current_word != 'ever' and current_word != 'also' and current_word != 'be' and current_word != 'more'
+                and current_word != 'upon' and current_word != 'no' and current_word != 'most' and current_word != 'could'):
                     word_count += 1
-                    word_and_count[current_word] = word_count
+                    if word_count > 2:
+                        word_and_count[current_word] = word_count
             len_count += 1
         return word_and_count
 
