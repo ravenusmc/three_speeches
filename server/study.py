@@ -8,15 +8,23 @@ class Words():
         self.dreamSpeech = 'dream.txt'
         self.military = 'military.txt'
 
-    def build_word_list(self):
+    def getSpeech(self, speech):
+        if (speech == 'Gettysburg Address'):
+            return self.GettysburgAddress
+        elif (speech == 'I have a Dream'):
+            return self.dreamSpeech
+        else:
+            return self.military
+
+    def build_word_list(self, speech):
       words = []
-      with open(self.military ,'r') as text:
+      with open(speech ,'r') as text:
           for line in text:
               for word in line.split():
                   words.append(word)
       return words
 
-    def clean_word_list(self, word_list):
+    def clean_word_list(self, word_list, speech):
         word_and_count = {}
         len_count = 0
         #looping through the list
@@ -43,19 +51,33 @@ class Words():
                 and current_word != 'must' and current_word != 'i' and current_word != 'my' and current_word != 'like'
                 and current_word != 'me' and current_word != 'now' and current_word != 'shall' and current_word != 'with'
                 and current_word != 'ever' and current_word != 'also' and current_word != 'be' and current_word != 'more'
-                and current_word != 'upon' and current_word != 'no' and current_word != 'most' and current_word != 'could'):
+                and current_word != 'upon' and current_word != 'no' and current_word != 'most' and current_word != 'could'
+                and current_word != 'should' and current_word != 'come' and current_word != 'during' and current_word != 'been'
+                and current_word != 'among' and current_word != 'toward' and current_word != 'there' and current_word != 'only'
+                and current_word != 'become' and current_word != 'may' and current_word != 'need' and current_word != 'between'
+                and current_word != 'every' and current_word != 'other' and current_word != 'yet' and current_word != 'let'):
                     word_count += 1
-                    if word_count > 2:
+                    if  (speech == self.GettysburgAddress and word_count > 2):
+                        word_and_count[current_word] = word_count
+                    elif (speech == self.dreamSpeech and word_count > 4):
+                        word_and_count[current_word] = word_count
+                    elif (speech == self.military and word_count > 3):
                         word_and_count[current_word] = word_count
             len_count += 1
         return word_and_count
 
+    def buildChartData(self, word_and_count):
+        print(word_and_count)
 
-    def build_word_chart(self):
+
+    def build_word_chart(self, speech):
          speech_data = Words()
-         word_list = speech_data.build_word_list()
-         word_and_count = speech_data.clean_word_list(word_list)
-         print(word_and_count)
+         speech = speech_data.getSpeech(speech)
+         word_list = speech_data.build_word_list(speech)
+         word_and_count = speech_data.clean_word_list(word_list, speech)
+         speech_data.buildChartData(word_and_count)
+
 
 test = Words()
-test.build_word_chart()
+#'Gettysburg Address', 'I have a Dream', 'Military Industrial Complex Speech'
+test.build_word_chart('I have a Dream')

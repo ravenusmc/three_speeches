@@ -18,8 +18,10 @@ CORS(app)
 @app.route('/getSpeechData', methods=['GET', 'POST'])
 def routeOne():
     if request.method == 'POST':
-        data = Data()
+        study = Data()
         post_data = request.get_json()
+        study.build_word_chart(speech)
+        #I'll have the speech
         return jsonify(first_chart_data)
 
 if __name__ == '__main__':
