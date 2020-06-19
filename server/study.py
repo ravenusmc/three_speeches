@@ -67,7 +67,15 @@ class Words():
         return word_and_count
 
     def buildChartData(self, word_and_count):
-        print(word_and_count)
+        chartData = []
+        columns = ['Word', 'Count']
+        chartData.append(columns)
+        for word, count in word_and_count.items():
+            rows = []
+            rows.append(word)
+            rows.append(count)
+            chartData.append(rows)
+        print(chartData)
 
 
     def build_word_chart(self, speech):
@@ -80,4 +88,4 @@ class Words():
 
 test = Words()
 #'Gettysburg Address', 'I have a Dream', 'Military Industrial Complex Speech'
-test.build_word_chart('I have a Dream')
+test.build_word_chart('Gettysburg Address')
