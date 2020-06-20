@@ -75,7 +75,7 @@ class Words():
             rows.append(word)
             rows.append(count)
             chartData.append(rows)
-        print(chartData)
+        return chartData
 
 
     def build_word_chart(self, speech):
@@ -83,7 +83,8 @@ class Words():
          speech = speech_data.getSpeech(speech)
          word_list = speech_data.build_word_list(speech)
          word_and_count = speech_data.clean_word_list(word_list, speech)
-         speech_data.buildChartData(word_and_count)
+         chartData = speech_data.buildChartData(word_and_count)
+         return chartData
 
 
 test = Words()

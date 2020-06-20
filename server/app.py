@@ -15,14 +15,14 @@ app.config.from_object(__name__)
 CORS(app)
 
 #This route will get the data for the charts
-@app.route('/getSpeechData', methods=['GET', 'POST'])
+@app.route('/getWordCountData', methods=['GET', 'POST'])
 def routeOne():
     if request.method == 'POST':
-        study = Data()
+        study = Words()
         post_data = request.get_json()
-        study.build_word_chart(speech)
-        #I'll have the speech
-        return jsonify(first_chart_data)
+        selected_speech = post_data['speech']
+        chartData = study.build_word_chart(selected_speech)
+        return jsonify(chartData)
 
 if __name__ == '__main__':
     app.run()

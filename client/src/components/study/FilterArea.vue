@@ -3,7 +3,7 @@
 
     <section>
 
-      <form @submit="submitYears">
+      <form @submit="submitSelection">
         <h3>Select Speech</h3>
         <select v-model="speech" name="speech">
            <option v-for="speech in speeches" v-bind:key="speech" :value="speech">
@@ -19,7 +19,7 @@
 </template>
 
 <script>
-//import { mapActions } from 'vuex';
+import { mapActions } from 'vuex';
 
 export default {
   name: "filterArea",
@@ -30,14 +30,15 @@ export default {
     };
   },
   methods: {
-    submitYears(evt) {
+    ...mapActions([
+      'fetchWordCountChartData',
+    ]),
+    submitSelection(evt) {
       evt.preventDefault();
-      // const payload = {
-      //   question: this.question,
-      //   answer: this.answer,
-      //   sex: this.sex,
-      // };
-      // this.fetchMapData({ payload });
+      const payload = {
+        speech: this.speech,
+      };
+      this.fetchWordCountChartData({ payload });
     },
   }
 }
