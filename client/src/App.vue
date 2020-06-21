@@ -37,7 +37,7 @@
 
 button {
   margin-top: 30px;
-  width: 10%;
+  width: 75px;
   background-color: #BF0D3E;
   border-color: #BF0D3E;
   color: white;

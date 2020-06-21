@@ -48,9 +48,11 @@ export default {
 
 section {
   margin-top: 50px;
+  height: 500px;
 }
 
 form {
+  margin-top: 20%;
   display: flex;
   flex-direction: column;
   justify-content: center;
