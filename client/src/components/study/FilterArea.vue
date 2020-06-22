@@ -60,7 +60,25 @@ form {
 }
 
 select {
-  width: 43%;
+  width: 275px;
+}
+
+@media only all and (max-width: 900px) {
+
+  section {
+    margin-top: -100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 300px;
+  }
+
+  form {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
 }
 
 </style>

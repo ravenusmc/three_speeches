@@ -35,10 +35,14 @@ export default {
     return {
       typeOne: 'BarChart',
       chartOptionsOne: {
-        title: 'First Chart',
+        title: 'Word Count by Speech',
         legend: { position: 'top' },
         colors:['#05ce78'],
         height: 500,
+        animation:{
+         duration: 1000,
+         easing: 'linear',
+       },
         vAxis: {
           viewWindow: {
             min: 0,
