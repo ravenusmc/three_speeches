@@ -1,7 +1,9 @@
 <template>
   <div>
     <Navbar />
+
     <Header />
+
     <section class='firstGraphArea'>
       <FilterArea />
       <GraphCard
@@ -10,6 +12,25 @@
        :options='chartOptionsOne'>
       </GraphCard>
     </section>
+
+    <hr>
+
+    <section class='sentimentSection'>
+
+      <div>
+      </div>
+
+      <div>
+        <h2 class='center'>Analysis</h2>
+        <p>
+          The graph on the left shows the average sentiment of each of the speeches.
+          The method that I used to do this is that I went line by line, got the sentiment
+          and then averaged the sentiment values.
+        </p>
+      </div>
+
+    </section>
+
     <Footer/>
   </div>
 </template>
@@ -63,6 +84,11 @@ export default {
 <style scoped>
 
 .firstGraphArea {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+
+.sentimentSection {
   display: grid;
   grid-template-columns: 1fr 1fr;
 }
