@@ -10,11 +10,22 @@ class SentimentAnalysis():
     def __init__(self):
         self.speeches = pd.read_json('./data/speeches.json', typ='series')
 
+    def get_average(self, sentence_sentiment_list):
+         return sum(sentence_sentiment_list) / len(sentence_sentiment_list)
+
     def get_sentiment_of_sentences(self, selected_speech, sentiment_list):
+        sentiment_object = SentimentAnalysis()
         speech_text_ready_for_analysis = TextBlob(selected_speech)
+        sentence_sentiment_list = []
         for sentence in speech_text_ready_for_analysis.sentences:
             sentence_sentiment = sentence.sentiment[0]
-            
+            sentence_sentiment_list.append(sentence_sentiment)
+        average = sentiment_object.get_average(sentence_sentiment_list)
+        sentiment_list.append(average)
+        return sentiment_list
+
+    def get_data_into_chart_format(self, sentiment_list):
+        pass
 
     #This is the initial method that will start to get the sentiment of each speech.
     def get_sentiment_of_speech(self):
