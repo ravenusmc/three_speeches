@@ -18,14 +18,28 @@
     <section class='sentimentSection'>
 
       <div>
+        <GraphCard
+         :typeOne='typeOne'
+         :data='sentimentChartData'
+         :options='chartOptionsTwo'>
+        </GraphCard>
       </div>
 
-      <div>
+      <div class='sentimentDiv'>
         <h2 class='center'>Analysis</h2>
         <p>
           The graph on the left shows the average sentiment of each of the speeches.
           The method that I used to do this is that I went line by line, got the sentiment
-          and then averaged the sentiment values.
+          and then averaged the sentiment values. I find it interesting that the Gettysburg
+          Address shows the greatest positive sentiment with the military
+          Industrial Complex Speech the lowest. Part of me would have thought that the
+          I Have a Dream Speech would have the greatest postive sentiment. Maybe it's
+          because the speech talks about what can be - what we can reach to in the
+          future. The Gettysburg Address on the other hand talks about a new birth
+          of freedom. It's almost as if the U.S. is being reborn and that is always
+          an optimistic idea. Finally, the military industrial speech is a warning.
+          It's not about hope but a warning of what can become of the U.S. if Eisenhower's
+          words are not followed. 
         </p>
       </div>
 
@@ -58,7 +72,7 @@ export default {
       chartOptionsOne: {
         title: 'Word Count by Speech',
         legend: { position: 'top' },
-        colors:['#05ce78'],
+        colors:['#BF0D3E'],
         height: 500,
         animation:{
          duration: 1000,
@@ -70,11 +84,23 @@ export default {
           },
         },
       },
+      chartOptionsTwo: {
+        title: 'Average Sentiment of the Speeches',
+        legend: { position: 'top' },
+        colors:['#BF0D3E'],
+        height: 500,
+        vAxis: {
+          viewWindow: {
+            min: 0,
+          },
+        },
+      },
     }
   },
   computed: {
   ...mapGetters([
     'wordCountChartData',
+    'sentimentChartData',
   ]),
 }, // End Computed properties
 }
@@ -91,6 +117,10 @@ export default {
 .sentimentSection {
   display: grid;
   grid-template-columns: 1fr 1fr;
+}
+
+.sentimentDiv {
+  margin-right: 10%;
 }
 
 @media only all and (max-width: 900px) {

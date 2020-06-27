@@ -24,8 +24,17 @@ class SentimentAnalysis():
         sentiment_list.append(average)
         return sentiment_list
 
-    def get_data_into_chart_format(self, sentiment_list):
-        pass
+    def get_data_into_chart_format(self, speeches, sentiment_list):
+        sentiment_data = []
+        columns = ['Speech', 'Sentiment']
+        sentiment_data.append(columns)
+        count = 0
+        while count < 3:
+            rows = []
+            rows.append(speeches[count])
+            rows.append(sentiment_list[count])
+            sentiment_data.append(rows)
+            count += 1
 
     #This is the initial method that will start to get the sentiment of each speech.
     def get_sentiment_of_speech(self):
@@ -36,6 +45,7 @@ class SentimentAnalysis():
         for speech in speeches:
             selected_speech = self.speeches[speech]
             sentiment_list = sentiment_object.get_sentiment_of_sentences(selected_speech, sentiment_list)
+        sentiment_object.get_data_into_chart_format(speeches, sentiment_list)
 
 
 test = SentimentAnalysis()

@@ -17,12 +17,19 @@ export default new Vuex.Store({
       ["they", 3],
       ["us", 3],
       ["people", 3]
-    ]
+    ],
+    sentimentChartData: [
+      ['Speech', 'Sentiment'],
+      ['Gettysburg Address', 0.1521518759018759],
+      ['I have a Dream', 0.11747201520935695],
+      ['Military Industrial Complex Speech', 0.0981414680197148]
+    ],
 
   },
 
   getters: {
     wordCountChartData: state => state.wordCountChartData,
+    sentimentChartData: state => state.sentimentChartData,
   },
 
   actions: {
