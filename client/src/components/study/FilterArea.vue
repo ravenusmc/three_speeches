@@ -31,14 +31,14 @@ export default {
   },
   methods: {
     ...mapActions([
-      'fetchWordCountChartData',
+      'fireActions',
     ]),
     submitSelection(evt) {
       evt.preventDefault();
       const payload = {
         speech: this.speech,
       };
-      this.fetchWordCountChartData({ payload });
+      this.fireActions({ payload });
     },
   }
 }

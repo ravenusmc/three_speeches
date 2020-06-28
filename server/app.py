@@ -21,7 +21,8 @@ def routeOne():
     if request.method == 'POST':
         study = Words()
         post_data = request.get_json()
-        selected_speech = post_data['speech']
+        getting_speech_data = post_data['payload']
+        selected_speech = getting_speech_data['speech']
         chartData = study.build_word_chart(selected_speech)
         return jsonify(chartData)
 

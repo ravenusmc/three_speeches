@@ -7,6 +7,7 @@ Vue.use(Vuex)
 export default new Vuex.Store({
 
   state: {
+    selectedSpeech: '',
     wordCountChartData: [
       ["Word", "Count"],
       ["we", 10],
@@ -30,9 +31,20 @@ export default new Vuex.Store({
   getters: {
     wordCountChartData: state => state.wordCountChartData,
     sentimentChartData: state => state.sentimentChartData,
+    selectedSpeech: state => state.selectedSpeech,
   },
 
   actions: {
+
+    fireActions: ({ dispatch }, payload) => {
+      dispatch('setSelectedSpeech', { payload })
+      dispatch('fetchWordCountChartData', { payload })
+    },
+
+    setSelectedSpeech: ({ commit }, { payload }) => {
+      let data = payload.payload.speech
+      commit('setSpeech', data);
+    },
 
     fetchWordCountChartData: ({ commit }, { payload }) => {
       const path = 'http://localhost:5000/getWordCountData';
@@ -46,6 +58,10 @@ export default new Vuex.Store({
   },
 
   mutations: {
+
+    setSpeech(state, data) {
+      state.selectedSpeech = data
+    },
 
     setWordCountChartData(state, data) {
       state.wordCountChartData = data;

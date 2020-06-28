@@ -19,7 +19,8 @@
     <section class='sentimentByLine'>
 
       <div>
-        <h2 class='center'>Current Sentence:</h2>
+        <h2 class='center'>Current Speech: {{ this.selectedSpeech }}</h2>
+        <h3 class='center'>Current Sentence:</h3>
       </div>
 
       <div>
@@ -129,6 +130,7 @@ export default {
     ...mapGetters([
       'wordCountChartData',
       'sentimentChartData',
+      'selectedSpeech',
     ]),
   }, // End Computed properties
   methods: {
@@ -138,6 +140,7 @@ export default {
       //this.fetchWordCountChartData({ payload });
     },
     changeSentenceBackward(evt) {
+      console.log(this.selectedSpeech)
       evt.preventDefault();
       console.log('Backw')
     }
