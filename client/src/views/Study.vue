@@ -5,12 +5,40 @@
     <Header />
 
     <section class='firstGraphArea'>
+
       <FilterArea />
+
       <GraphCard
        :typeOne='typeOne'
        :data='wordCountChartData'
        :options='chartOptionsOne'>
       </GraphCard>
+
+    </section>
+
+    <section class='sentimentByLine'>
+
+      <div>
+        <h2 class='center'>Current Sentence:</h2>
+      </div>
+
+      <div>
+        <p>
+          This section will allow the user to see the sentiment of each sentence
+          based on the speech that is selected above. The user will be able to use the
+          arrows below and change each sentence as they go through the speech.
+          <div class='changeSentenceArea'>
+            <form class='upArrow' @submit="changeSentenceForward">
+              <button><i class="fa fa-arrow-circle-up fa-3x" aria-hidden="true"></i></button>
+            </form>
+            <form class='downArrow' @submit="changeSentenceBackward">
+              <button><i class="fa fa-arrow-circle-down fa-3x" aria-hidden="true"></i></button>
+            </form>
+          </div>
+        </p>
+      </div>
+
+
     </section>
 
     <hr>
@@ -39,7 +67,7 @@
           of freedom. It's almost as if the U.S. is being reborn and that is always
           an optimistic idea. Finally, the military industrial speech is a warning.
           It's not about hope but a warning of what can become of the U.S. if Eisenhower's
-          words are not followed. 
+          words are not followed.
         </p>
       </div>
 
@@ -98,11 +126,22 @@ export default {
     }
   },
   computed: {
-  ...mapGetters([
-    'wordCountChartData',
-    'sentimentChartData',
-  ]),
-}, // End Computed properties
+    ...mapGetters([
+      'wordCountChartData',
+      'sentimentChartData',
+    ]),
+  }, // End Computed properties
+  methods: {
+    changeSentenceForward(evt) {
+      evt.preventDefault();
+      console.log('HI')
+      //this.fetchWordCountChartData({ payload });
+    },
+    changeSentenceBackward(evt) {
+      evt.preventDefault();
+      console.log('Backw')
+    }
+  }
 }
 
 </script>
@@ -113,6 +152,35 @@ export default {
   display: grid;
   grid-template-columns: 1fr 1fr;
 }
+
+/****************
+This is the CSS for the change sentiment by line area
+****************/
+
+.sentimentByLine {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  border: 2px solid red;
+}
+
+.changeSentenceArea {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.upArrow {
+  margin-right: 10px;
+}
+
+.downArrow {
+  margin-left: 10px;
+}
+
+
+/****************
+This is the CSS for the sentiment area
+****************/
 
 .sentimentSection {
   display: grid;
