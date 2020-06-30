@@ -7,7 +7,8 @@ Vue.use(Vuex)
 export default new Vuex.Store({
 
   state: {
-    selectedSpeech: '',
+    selectedSpeech: 'Gettysburg Address',
+    sentence: '',
     wordCountChartData: [
       ["Word", "Count"],
       ["we", 10],
@@ -32,6 +33,7 @@ export default new Vuex.Store({
     wordCountChartData: state => state.wordCountChartData,
     sentimentChartData: state => state.sentimentChartData,
     selectedSpeech: state => state.selectedSpeech,
+    sentence: state => state.sentence,
   },
 
   actions: {
@@ -53,7 +55,16 @@ export default new Vuex.Store({
         res.data.sort((a, b) => b[1] - a[1]);
         commit('setWordCountChartData', res.data);
       });
-    }
+    },
+
+    getSentenceAndSentiment: ({ commit}, { payload }) => {
+      const path = 'http://localhost:5000/getSentenceAndSentiment';
+      axios.post(path, payload)
+      .then((res) => {
+        // res.data.sort((a, b) => b[1] - a[1]);
+        // commit('setWordCountChartData', res.data);
+      });
+    },
 
   },
 

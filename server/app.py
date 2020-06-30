@@ -26,6 +26,15 @@ def routeOne():
         chartData = study.build_word_chart(selected_speech)
         return jsonify(chartData)
 
+@app.route('/getSentenceAndSentiment', methods=['GET', 'POST'])
+def routeTwo():
+    if request.method == 'POST':
+        sentiment_object = SentimentAnalysis()
+        post_data = request.get_json()
+        speech = post_data['speech']
+        sentiment_object.get_sentence_and_subjectivity(speech)
+        return jsonify('HI')
+
 
 if __name__ == '__main__':
     app.run()

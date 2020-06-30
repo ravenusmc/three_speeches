@@ -47,7 +47,21 @@ class SentimentAnalysis():
             sentiment_list = sentiment_object.get_sentiment_of_sentences(selected_speech, sentiment_list)
         sentiment_object.get_data_into_chart_format(speeches, sentiment_list)
 
+    #This method will work on getting the sentence, sentiment and subjectivity from
+    #each sentence in a selected speech.
+    def get_sentence_and_subjectivity(self, speech):
+        selected_speech = self.speeches[speech]
+        test = selected_speech.find("Now")
+        print(test)
+        # speech_text_ready_for_analysis = TextBlob(selected_speech)
+        # print(speech_text_ready_for_analysis)
+        # for sentence in speech_text_ready_for_analysis.sentences:
+        #     sentence_sentiment = sentence.sentiment[0]
+        #     print(sentence_sentiment)
 
+
+# Now we are engaged in a great civil war testing whether that nation or any
+#   nation so conceived and so dedicated can long endure.
 test = SentimentAnalysis()
 #'Gettysburg Address', 'I have a Dream', 'Military Industrial Complex Speech'
-test.get_sentiment_of_speech()
+test.get_sentence_and_subjectivity('Gettysburg Address')

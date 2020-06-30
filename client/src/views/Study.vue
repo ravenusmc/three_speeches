@@ -20,7 +20,8 @@
 
       <div>
         <h2 class='center'>Current Speech: {{ this.selectedSpeech }}</h2>
-        <h3 class='center'>Current Sentence:</h3>
+        <h4 class='center'>Current Sentence:</h4>
+        <h4>Sentiment: </h4>
       </div>
 
       <div>
@@ -79,7 +80,7 @@
 </template>
 
 <script>
-import { mapGetters } from 'vuex';
+import { mapGetters, mapActions } from 'vuex';
 import Navbar from '@/components/generic/Navbar.vue';
 import Header from '@/components/study/Header.vue';
 import FilterArea from '@/components/study/FilterArea.vue';
@@ -134,10 +135,15 @@ export default {
     ]),
   }, // End Computed properties
   methods: {
+    ...mapActions([
+      'getSentenceAndSentiment',
+    ]),
     changeSentenceForward(evt) {
       evt.preventDefault();
-      console.log('HI')
-      //this.fetchWordCountChartData({ payload });
+      const payload = {
+        speech: this.selectedSpeech,
+      };
+      this.getSentenceAndSentiment({ payload });
     },
     changeSentenceBackward(evt) {
       console.log(this.selectedSpeech)
@@ -194,6 +200,9 @@ This is the CSS for the sentiment area
   margin-right: 10%;
 }
 
+/****************
+Media Queries
+****************/
 @media only all and (max-width: 900px) {
 
   .firstGraphArea {
