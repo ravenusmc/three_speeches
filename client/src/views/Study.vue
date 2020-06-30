@@ -20,7 +20,7 @@
 
       <div>
         <h2 class='center'>Current Speech: {{ this.selectedSpeech }}</h2>
-        <h4 class='center'>Current Sentence:</h4>
+        <p class='center'>Current Sentence: {{ this.sentence }}</p>
         <h4>Sentiment: </h4>
       </div>
 
@@ -132,6 +132,8 @@ export default {
       'wordCountChartData',
       'sentimentChartData',
       'selectedSpeech',
+      'sentence',
+      'sentenceIndex',
     ]),
   }, // End Computed properties
   methods: {
@@ -140,8 +142,11 @@ export default {
     ]),
     changeSentenceForward(evt) {
       evt.preventDefault();
+      let index = this.sentenceIndex
+      let newIndex = index += 1
       const payload = {
         speech: this.selectedSpeech,
+        index: newIndex,
       };
       this.getSentenceAndSentiment({ payload });
     },

@@ -8,7 +8,9 @@ export default new Vuex.Store({
 
   state: {
     selectedSpeech: 'Gettysburg Address',
-    sentence: '',
+    sentence: 'Four score and seven years ago our fathers brought forth on this continent a new nation conceived in Liberty and dedicated to the proposition that all men are created equal',
+    // The sentence index will be used to move back and forth in a speech.
+    sentenceIndex: 0,
     wordCountChartData: [
       ["Word", "Count"],
       ["we", 10],
@@ -34,6 +36,7 @@ export default new Vuex.Store({
     sentimentChartData: state => state.sentimentChartData,
     selectedSpeech: state => state.selectedSpeech,
     sentence: state => state.sentence,
+    sentenceIndex: state => state.sentenceIndex,
   },
 
   actions: {
