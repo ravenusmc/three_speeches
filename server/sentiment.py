@@ -49,21 +49,24 @@ class SentimentAnalysis():
 
     #This method will work on getting the sentence, sentiment and subjectivity from
     #each sentence in a selected speech.
-    def get_sentence_and_subjectivity(self, speech, user_sentence):
+    def get_sentence_and_subjectivity(self, speech, indexValue):
+        data = []
         selected_speech = self.speeches[speech]
-        speech_in_list = selected_speech.split('.')
-        count = 0
-        while count < len(speech_in_list):
-            if user_sentence == speech_in_list[count]:
-                print('YAY')
-                print(count)
-                input()
-            count += 1
+        speech_in_list_format = selected_speech.split('.')
+        selectedSentence = speech_in_list_format[indexValue]
+        sentiment_data = TextBlob(selectedSentence)
+        sentiment = sentiment_data.sentiment[0]
+        subjectivity = sentiment_data.sentiment[1]
+        data.append(selectedSentence)
+        data.append(indexValue)
+        data.append(sentiment)
+        data.append(subjectivity)
+        return data
 
 
 # Now we are engaged in a great civil war testing whether that nation or any
 #   nation so conceived and so dedicated can long endure.
-test = SentimentAnalysis()
+# test = SentimentAnalysis()
 #'Gettysburg Address', 'I have a Dream', 'Military Industrial Complex Speech'
-user_sentence = "Four score and seven years ago our fathers brought forth on this continent a new nation conceived in Liberty and dedicated to the proposition that all men are created equal"
-test.get_sentence_and_subjectivity('Gettysburg Address', user_sentence)
+# user_sentence = "Four score and seven years ago our fathers brought forth on this continent a new nation conceived in Liberty and dedicated to the proposition that all men are created equal"
+# test.get_sentence_and_subjectivity('Gettysburg Address', user_sentence)

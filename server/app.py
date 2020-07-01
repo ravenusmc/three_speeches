@@ -32,8 +32,9 @@ def routeTwo():
         sentiment_object = SentimentAnalysis()
         post_data = request.get_json()
         speech = post_data['speech']
-        sentiment_object.get_sentence_and_subjectivity(speech)
-        return jsonify('HI')
+        indexValue = post_data['index']
+        data = sentiment_object.get_sentence_and_subjectivity(speech, indexValue)
+        return jsonify(data)
 
 
 if __name__ == '__main__':

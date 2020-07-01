@@ -57,6 +57,10 @@ export default new Vuex.Store({
       .then((res) => {
         res.data.sort((a, b) => b[1] - a[1]);
         commit('setWordCountChartData', res.data);
+        // Here I'm resetting the count for the index value when each speech
+        // changes.
+        let data = 0
+        commit('setSentenceIndex', data)
       });
     },
 
@@ -64,8 +68,8 @@ export default new Vuex.Store({
       const path = 'http://localhost:5000/getSentenceAndSentiment';
       axios.post(path, payload)
       .then((res) => {
-        // res.data.sort((a, b) => b[1] - a[1]);
-        // commit('setWordCountChartData', res.data);
+        commit('setSentence', res.data[0])
+        commit('setSentenceIndex', res.data[1])
       });
     },
 
@@ -80,6 +84,14 @@ export default new Vuex.Store({
     setWordCountChartData(state, data) {
       state.wordCountChartData = data;
     },
+
+    setSentence(state, data) {
+      state.sentence = data;
+    },
+
+    setSentenceIndex(state, data) {
+      state.sentenceIndex = data;
+    }
 
   },
 
