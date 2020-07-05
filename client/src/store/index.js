@@ -42,9 +42,9 @@ export default new Vuex.Store({
   actions: {
 
     fireActions: ({ dispatch }, payload) => {
-      dispatch('setSelectedSpeech', { payload })
-      dispatch('setSelectedSentence', { payload })
-      dispatch('fetchWordCountChartData', { payload })
+      dispatch('setSelectedSpeech', { payload });
+      dispatch('setSelectedSentence', { payload });
+      dispatch('fetchWordCountChartData', { payload });
     },
 
     setSelectedSpeech: ({ commit }, { payload }) => {
