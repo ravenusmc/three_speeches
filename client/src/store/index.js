@@ -42,6 +42,7 @@ export default new Vuex.Store({
   actions: {
 
     fireActions: ({ dispatch }, payload) => {
+      console.log(payload)
       dispatch('setSelectedSpeech', { payload });
       dispatch('setSelectedSentence', { payload });
       dispatch('fetchWordCountChartData', { payload });
@@ -50,6 +51,12 @@ export default new Vuex.Store({
     setSelectedSpeech: ({ commit }, { payload }) => {
       let data = payload.payload.speech
       commit('setSpeech', data);
+    },
+
+    // The purpose of this action is to set the first sentence on the sentiment
+    // and subjectivity section when the speech is changed. 
+    setSelectedSentence: ({ commit }, { payload}) => {
+      const path = 'http://localhost:5000/getWordCountData';
     },
 
     fetchWordCountChartData: ({ commit }, { payload }) => {
