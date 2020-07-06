@@ -18,10 +18,11 @@
 
     <section class='sentimentByLine'>
 
-      <div>
+      <div class='sentimentByLineDiv'>
         <h2 class='center'>Current Speech: {{ this.selectedSpeech }}</h2>
         <p class='center'>Current Sentence: {{ this.sentence }}</p>
-        <h4>Sentiment: </h4>
+        <h4>Sentiment: {{ this.sentenceSentiment }}</h4>
+        <h4>Subjectivity: {{ this.sentenceSubjectivity }}</h4>
       </div>
 
       <div>
@@ -39,7 +40,6 @@
           </div>
         </p>
       </div>
-
 
     </section>
 
@@ -134,6 +134,8 @@ export default {
       'selectedSpeech',
       'sentence',
       'sentenceIndex',
+      'sentenceSentiment',
+      'sentenceSubjectivity',
     ]),
   }, // End Computed properties
   methods: {
@@ -174,7 +176,12 @@ This is the CSS for the change sentiment by line area
 .sentimentByLine {
   display: grid;
   grid-template-columns: 1fr 1fr;
+  grid-gap: 3em;
   border: 2px solid red;
+}
+
+.sentimentByLineDiv {
+  margin-left: 5%;
 }
 
 .changeSentenceArea {

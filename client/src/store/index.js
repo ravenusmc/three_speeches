@@ -28,7 +28,8 @@ export default new Vuex.Store({
       ['I have a Dream', 0.11747201520935695],
       ['Military Industrial Complex Speech', 0.0981414680197148]
     ],
-
+    sentenceSentiment: 0.375,
+    sentenceSubjectivity: 0.575,
   },
 
   getters: {
@@ -37,12 +38,13 @@ export default new Vuex.Store({
     selectedSpeech: state => state.selectedSpeech,
     sentence: state => state.sentence,
     sentenceIndex: state => state.sentenceIndex,
+    sentenceSentiment: state => state.sentenceSentiment,
+    sentenceSubjectivity: state => state.sentenceSubjectivity,
   },
 
   actions: {
 
     fireActions: ({ dispatch }, payload) => {
-      console.log(payload)
       dispatch('setSelectedSpeech', { payload });
       dispatch('setSelectedSentence', { payload });
       dispatch('fetchWordCountChartData', { payload });
@@ -54,9 +56,13 @@ export default new Vuex.Store({
     },
 
     // The purpose of this action is to set the first sentence on the sentiment
-    // and subjectivity section when the speech is changed. 
+    // and subjectivity section when the speech is changed.
     setSelectedSentence: ({ commit }, { payload}) => {
-      const path = 'http://localhost:5000/getWordCountData';
+      const path = 'http://localhost:5000/getSelectedSentenceData';
+      axios.post(path, payload)
+      .then((res) => {
+        commit('setSentence', res.data)
+      });
     },
 
     fetchWordCountChartData: ({ commit }, { payload }) => {
@@ -78,6 +84,8 @@ export default new Vuex.Store({
       .then((res) => {
         commit('setSentence', res.data[0])
         commit('setSentenceIndex', res.data[1])
+        commit('setSentenceSentiment', res.data[2])
+        commit('setSentenceSubjectivity', res.data[3])
       });
     },
 
@@ -99,6 +107,14 @@ export default new Vuex.Store({
 
     setSentenceIndex(state, data) {
       state.sentenceIndex = data;
+    },
+
+    setSentenceSentiment(state, data) {
+      state.sentenceSentiment = data;
+    },
+
+    setSentenceSubjectivity(state, data) {
+      state.sentenceSubjectivity = data;
     }
 
   },

@@ -63,6 +63,13 @@ class SentimentAnalysis():
         data.append(subjectivity)
         return data
 
+    def get_first_sentence(self, selected_speech):
+        selected_speech = self.speeches[selected_speech]
+        speech_in_list_format = selected_speech.split('.')
+        first_sentence_of_speech = speech_in_list_format[0]
+        return first_sentence_of_speech
+
+
 
 # Now we are engaged in a great civil war testing whether that nation or any
 #   nation so conceived and so dedicated can long endure.

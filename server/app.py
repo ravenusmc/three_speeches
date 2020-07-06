@@ -36,6 +36,18 @@ def routeTwo():
         data = sentiment_object.get_sentence_and_subjectivity(speech, indexValue)
         return jsonify(data)
 
+@app.route('/getSelectedSentenceData', methods=['GET', 'POST'])
+def routeThree():
+    if request.method == 'POST':
+        sentiment_object = SentimentAnalysis()
+        post_data = request.get_json()
+        getting_speech_data = post_data['payload']
+        selected_speech = getting_speech_data['speech']
+        first_sentence_of_speech = sentiment_object.get_first_sentence(selected_speech)
+        return jsonify(first_sentence_of_speech)
+
+
+
 
 if __name__ == '__main__':
     app.run()
