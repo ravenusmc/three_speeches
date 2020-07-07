@@ -28,8 +28,8 @@ export default new Vuex.Store({
       ['I have a Dream', 0.11747201520935695],
       ['Military Industrial Complex Speech', 0.0981414680197148]
     ],
-    sentenceSentiment: 0.375,
-    sentenceSubjectivity: 0.575,
+    sentenceSentiment: 0.068,
+    sentenceSubjectivity: 0.35,
   },
 
   getters: {
@@ -61,7 +61,9 @@ export default new Vuex.Store({
       const path = 'http://localhost:5000/getSelectedSentenceData';
       axios.post(path, payload)
       .then((res) => {
-        commit('setSentence', res.data)
+        commit('setSentence', res.data[0])
+        commit('setSentenceSentiment', res.data[1])
+        commit('setSentenceSubjectivity', res.data[2])
       });
     },
 

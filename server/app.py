@@ -43,8 +43,8 @@ def routeThree():
         post_data = request.get_json()
         getting_speech_data = post_data['payload']
         selected_speech = getting_speech_data['speech']
-        first_sentence_of_speech = sentiment_object.get_first_sentence(selected_speech)
-        return jsonify(first_sentence_of_speech)
+        single_sentence_data = sentiment_object.get_first_sentence(selected_speech)
+        return jsonify(single_sentence_data)
 
 
 

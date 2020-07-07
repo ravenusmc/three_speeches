@@ -53,21 +53,28 @@ class SentimentAnalysis():
         data = []
         selected_speech = self.speeches[speech]
         speech_in_list_format = selected_speech.split('.')
-        selectedSentence = speech_in_list_format[indexValue]
-        sentiment_data = TextBlob(selectedSentence)
+        selected_sentence = speech_in_list_format[indexValue]
+        sentiment_data = TextBlob(selected_sentence)
         sentiment = sentiment_data.sentiment[0]
         subjectivity = sentiment_data.sentiment[1]
-        data.append(selectedSentence)
+        data.append(selected_sentence)
         data.append(indexValue)
-        data.append(sentiment)
-        data.append(subjectivity)
+        data.append(format(sentiment, '.3f'))
+        data.append(format(subjectivity, '.3f'))
         return data
 
     def get_first_sentence(self, selected_speech):
+        single_sentence_data = []
         selected_speech = self.speeches[selected_speech]
         speech_in_list_format = selected_speech.split('.')
         first_sentence_of_speech = speech_in_list_format[0]
-        return first_sentence_of_speech
+        sentiment_data = TextBlob(first_sentence_of_speech)
+        sentiment = sentiment_data.sentiment[0]
+        subjectivity = sentiment_data.sentiment[1]
+        single_sentence_data.append(first_sentence_of_speech)
+        single_sentence_data.append(format(sentiment, '.3f'))
+        single_sentence_data.append(format(subjectivity, '.3f'))
+        return single_sentence_data
 
 
 

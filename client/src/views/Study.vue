@@ -153,9 +153,18 @@ export default {
       this.getSentenceAndSentiment({ payload });
     },
     changeSentenceBackward(evt) {
-      console.log(this.selectedSpeech)
       evt.preventDefault();
-      console.log('Backw')
+      let index = this.sentenceIndex
+      let newIndex = index -= 1
+      if (newIndex < 0) {
+        alert("Cannot Go Further Backwards")
+      }else {
+        const payload = {
+          speech: this.selectedSpeech,
+          index: newIndex,
+        };
+        this.getSentenceAndSentiment({ payload });
+      }
     }
   }
 }
@@ -177,7 +186,8 @@ This is the CSS for the change sentiment by line area
   display: grid;
   grid-template-columns: 1fr 1fr;
   grid-gap: 3em;
-  border: 2px solid red;
+  margin-bottom: 50px;
+  margin-top: -100px;
 }
 
 .sentimentByLineDiv {
