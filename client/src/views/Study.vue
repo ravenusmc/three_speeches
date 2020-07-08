@@ -19,8 +19,8 @@
     <section class='sentimentByLine'>
 
       <div class='sentimentByLineDiv'>
-        <h2 class='center'>Current Speech: {{ this.selectedSpeech }}</h2>
-        <p class='center'>Current Sentence: {{ this.sentence }}</p>
+        <h2 class='center'><span>Current Speech:</span> {{ this.selectedSpeech }}</h2>
+        <p class='center'><span>Current Sentence:</span> {{ this.sentence }}</p>
         <h4>Sentiment: {{ this.sentenceSentiment }}</h4>
         <h4>Subjectivity: {{ this.sentenceSubjectivity }}</h4>
       </div>
@@ -213,6 +213,10 @@ This is the CSS for the change sentiment by line area
 This is the CSS for the sentiment area
 ****************/
 
+span {
+  font-weight: bold;
+}
+
 .sentimentSection {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -229,6 +233,12 @@ Media Queries
 
   .firstGraphArea {
     grid-template-columns: 1fr;
+  }
+
+  .sentimentByLine {
+    display: grid;
+    grid-template-columns: 1fr;
+    margin-top: 100px;
   }
 
 }
