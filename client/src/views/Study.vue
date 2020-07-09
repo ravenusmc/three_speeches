@@ -21,12 +21,14 @@
       <div class='sentimentByLineDiv'>
         <h2 class='center'><span>Current Speech:</span> {{ this.selectedSpeech }}</h2>
         <p class='center'><span>Current Sentence:</span> {{ this.sentence }}</p>
-        <h4>Sentiment: {{ this.sentenceSentiment }}</h4>
-        <h4>Subjectivity: {{ this.sentenceSubjectivity }}</h4>
+        <div class='dataDivArea'>
+          <h4>Sentiment: {{ this.sentenceSentiment }}</h4>
+          <h4>Subjectivity: {{ this.sentenceSubjectivity }}</h4>
+        </div>
       </div>
 
       <div>
-        <p>
+        <p class='sentenmentByLineParagraph'>
           This section will allow the user to see the sentiment of each sentence
           based on the speech that is selected above. The user will be able to use the
           arrows below and change each sentence as they go through the speech.
@@ -57,8 +59,8 @@
 
       <div class='sentimentDiv'>
         <h2 class='center'>Analysis</h2>
-        <p>
-          The graph on the left shows the average sentiment of each of the speeches.
+        <p class='sentimentChartParagraph'>
+          The graph shows the average sentiment of each of the speeches.
           The method that I used to do this is that I went line by line, got the sentiment
           and then averaged the sentiment values. I find it interesting that the Gettysburg
           Address shows the greatest positive sentiment with the military
@@ -194,6 +196,13 @@ This is the CSS for the change sentiment by line area
   margin-left: 5%;
 }
 
+.dataDivArea {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
 .changeSentenceArea {
   display: flex;
   justify-content: center;
@@ -220,6 +229,8 @@ span {
 .sentimentSection {
   display: grid;
   grid-template-columns: 1fr 1fr;
+  margin-left: 5%;
+  margin-right: 5%;
 }
 
 .sentimentDiv {
@@ -239,6 +250,19 @@ Media Queries
     display: grid;
     grid-template-columns: 1fr;
     margin-top: 100px;
+  }
+
+  .sentenmentByLineParagraph {
+    margin-left: 5%;
+  }
+
+  .sentimentSection {
+    grid-template-columns: 1fr;
+  }
+
+  .sentimentChartParagraph {
+    margin-left: 5%;
+    margin-right: 5%;
   }
 
 }
