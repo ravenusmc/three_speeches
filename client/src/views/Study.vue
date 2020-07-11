@@ -31,7 +31,10 @@
         <p class='sentenmentByLineParagraph'>
           This section will allow the user to see the sentiment of each sentence
           based on the speech that is selected above. The user will be able to use the
-          arrows below and change each sentence as they go through the speech.
+          arrows below and change each sentence as they go through the speech. The sentiment
+          ranges from -1 to 1.0. The value of -1 means that the sentence has very negative
+          sentiment whereas the 1.0 value means that the sentence is positive. The subjectivity
+          value ranges from 0.0 to 1.0. O.0 is very objective and 1.0 is very subjective.
           <div class='changeSentenceArea'>
             <form class='upArrow' @submit="changeSentenceForward">
               <button><i class="fa fa-arrow-circle-up fa-3x" aria-hidden="true"></i></button>
@@ -148,18 +151,28 @@ export default {
       evt.preventDefault();
       let index = this.sentenceIndex
       let newIndex = index += 1
-      const payload = {
-        speech: this.selectedSpeech,
-        index: newIndex,
-      };
-      this.getSentenceAndSentiment({ payload });
+      // I hard coded the values for the length of the speech's simply because
+      // I want to move onto a new project. 
+      if (this.selectedSpeech === 'Gettysburg Address' && newIndex > 8) {
+        alert('You are at the last sentence.')
+      }else if (this.selectedSpeech === 'I have a Dream' && newIndex > 77){
+        alert('You are at the last sentence.')
+      }else if (this.selectedSpeech === 'Military Industrial Complex Speech' && newIndex > 76){
+        alert('You are at the last sentence.')
+      }else {
+        const payload = {
+          speech: this.selectedSpeech,
+          index: newIndex,
+        };
+        this.getSentenceAndSentiment({ payload });
+      }
     },
     changeSentenceBackward(evt) {
       evt.preventDefault();
       let index = this.sentenceIndex
       let newIndex = index -= 1
       if (newIndex < 0) {
-        alert("Cannot Go Further Backwards")
+        alert("You are at the first sentence.")
       }else {
         const payload = {
           speech: this.selectedSpeech,
@@ -194,6 +207,10 @@ This is the CSS for the change sentiment by line area
 
 .sentimentByLineDiv {
   margin-left: 5%;
+}
+
+.sentenmentByLineParagraph {
+  margin: 0 5% 0 5%;
 }
 
 .dataDivArea {
@@ -240,6 +257,8 @@ span {
 /****************
 Media Queries
 ****************/
+
+/* Mobile Screen */
 @media only all and (max-width: 900px) {
 
   .firstGraphArea {
@@ -250,10 +269,6 @@ Media Queries
     display: grid;
     grid-template-columns: 1fr;
     margin-top: 100px;
-  }
-
-  .sentenmentByLineParagraph {
-    margin-left: 5%;
   }
 
   .sentimentSection {
